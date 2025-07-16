@@ -5,6 +5,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressBar } from '@angular/material/progress-bar';
+import { MatIcon } from '@angular/material/icon';
+import { MatDatepicker } from '@angular/material/datepicker';
 
 export const MaterialModules = [
   MatToolbarModule,
@@ -13,5 +15,7 @@ export const MaterialModules = [
   MatCardModule,
   MatFormFieldModule,
   MatListModule,
-  MatProgressBar
+  MatProgressBar,
+  MatIcon,
+  MatDatepicker
 ];

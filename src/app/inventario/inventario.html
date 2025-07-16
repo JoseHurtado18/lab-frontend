@@ -1,0 +1,48 @@
+<h2>Inventario de Productos</h2>
+
+<div *ngIf="error" class="error">{{ error }}</div>
+<div *ngIf="cargando" class="spinner-container">
+  <mat-spinner></mat-spinner>
+</div>
+
+<table mat-table [dataSource]="inventario" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="codigo">
+    <th mat-header-cell *matHeaderCellDef> Código </th>
+    <td mat-cell *matCellDef="let element"> {{ element.plano.codigo }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="descripcion">
+    <th mat-header-cell *matHeaderCellDef> Descripción </th>
+    <td mat-cell *matCellDef="let element"> {{ element.plano.descripcion }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cantidad">
+    <th mat-header-cell *matHeaderCellDef> Cantidad Disponible </th>
+    <td mat-cell *matCellDef="let element"> {{ element.cantidadDisponible }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['id', 'codigo', 'descripcion', 'cantidad']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['id', 'codigo', 'descripcion', 'cantidad'];"></tr>
+</table>
+
+<hr>
+
+<h3>Enviar al Inventario</h3>
+<form (ngSubmit)="enviarInventario()" class="form-envio">
+  <mat-form-field>
+    <mat-label>ID del Inventario</mat-label>
+    <input matInput [(ngModel)]="nuevoEnvio.id" name="id" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Cantidad a Enviar</mat-label>
+    <input matInput type="number" [(ngModel)]="nuevoEnvio.cantidadDisponible" name="cantidad" required>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Enviar</button>
+</form>
