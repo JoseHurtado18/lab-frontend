@@ -1,0 +1,27 @@
+<h2>Productos Fabricados</h2>
+
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="cargando">Cargando productos...</div>
+
+<ul>
+  <li *ngFor="let producto of productos">
+    {{ producto.codigo }} - {{ producto.nombre }} (Cantidad: {{ producto.cantidad }})
+  </li>
+</ul>
+
+<hr>
+
+<h3>Fabricar Nuevo Producto</h3>
+<form (ngSubmit)="fabricarProducto()">
+  <label>Código:</label>
+  <input [(ngModel)]="nuevoProducto.codigo" name="codigo" required>
+
+  <label>Nombre:</label>
+  <input [(ngModel)]="nuevoProducto.nombre" name="nombre" required>
+
+  <label>Cantidad:</label>
+  <input type="number" [(ngModel)]="nuevoProducto.cantidad" name="cantidad" required>
+
+  <button type="submit">Fabricar</button>
+</form>
