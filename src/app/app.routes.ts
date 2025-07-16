@@ -1,14 +1,15 @@
 // app.routes.ts
 import { Routes } from '@angular/router';
 import { App } from './app';
-import { Producto } from './producto/producto';
+import { ProductosComponent } from './producto/producto';
 
 export const routes: Routes = [
   {
     path: '',
     component: App,
     children: [
-      { path: 'productos', component: Producto },
+      { path: 'productos', component: ProductosComponent },
+      { path: '', redirectTo: 'productos', pathMatch: 'full' }
       // otras rutas...
     ]
 

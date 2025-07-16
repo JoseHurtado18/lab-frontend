@@ -1,27 +1,40 @@
+<!-- productos.component.html -->
 <h2>Productos Fabricados</h2>
 
-<div *ngIf="error" class="error">{{ error }}</div>
+<mat-card *ngIf="error" color="warn" class="mat-elevation-z2">
+  <p>{{ error }}</p>
+</mat-card>
 
-<div *ngIf="cargando">Cargando productos...</div>
+<mat-progress-bar *ngIf="cargando" mode="indeterminate"></mat-progress-bar>
 
-<ul>
-  <li *ngFor="let producto of productos">
-    {{ producto.codigo }} - {{ producto.nombre }} (Cantidad: {{ producto.cantidad }})
-  </li>
-</ul>
+<mat-list>
+  <mat-list-item *ngFor="let producto of productos">
+    <strong>{{ producto.codigoSerie }}</strong> - {{ producto.id }}
+    <span class="ml-auto">Cantidad: {{ producto.cantidad }}</span>
+  </mat-list-item>
+</mat-list>
 
-<hr>
+<hr />
 
 <h3>Fabricar Nuevo Producto</h3>
-<form (ngSubmit)="fabricarProducto()">
-  <label>Código:</label>
-  <input [(ngModel)]="nuevoProducto.codigo" name="codigo" required>
 
-  <label>Nombre:</label>
-  <input [(ngModel)]="nuevoProducto.nombre" name="nombre" required>
+<form (ngSubmit)="fabricarProducto()" class="product-form" #form="ngForm">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Código</mat-label>
+    <input matInput [(ngModel)]="nuevoProducto.codigoSerie" name="codigo" required />
+  </mat-form-field>
 
-  <label>Cantidad:</label>
-  <input type="number" [(ngModel)]="nuevoProducto.cantidad" name="cantidad" required>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>fechaFabricacion</mat-label>
+    <input matInput [(ngModel)]="nuevoProducto.fechaFabricacion" name="fechaFabricacion" required />
+  </mat-form-field>
 
-  <button type="submit">Fabricar</button>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Cantidad</mat-label>
+    <input matInput type="number" [(ngModel)]="nuevoProducto.cantidad" name="cantidad" required />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">
+    Fabricar
+  </button>
 </form>
