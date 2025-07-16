@@ -19,7 +19,8 @@ export interface Producto {
   providedIn: 'root'
 })
 export class ProductoService {
-  private apiUrl = 'lab/productos';
+  private apiUrl = 'http://ec2-3-142-243-137.us-east-2.compute.amazonaws.com/lab/productos';
+  private apiUrl2 = 'http://ec2-3-142-243-137.us-east-2.compute.amazonaws.com/lab';
 
   constructor(private http: HttpClient) {}
 

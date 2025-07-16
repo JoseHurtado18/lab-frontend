@@ -1,8 +1,1 @@
-{
-  "/lab": {
-    "target": "http://ec2-3-142-243-137.us-east-2.compute.amazonaws.com/",
-    "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug"
-  }
-}
+
