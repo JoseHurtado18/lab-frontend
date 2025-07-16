@@ -1,0 +1,23 @@
+<div>
+    <h1>Productos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Codigo de serie</th>
+                <th>Fecha fabricacion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (producto of productos; track producto.ID){
+            <tr>
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.codigoSerie }}</td>
+                <td>{{ producto.fechaFabricacion }}</td>
+            </tr>
+
+            }
+
+        </tbody>
+    </table>
+</div>
