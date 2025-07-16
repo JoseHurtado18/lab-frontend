@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { ConstruirDTO } from './ConstruirDTO';
 
 export interface Producto {
   id?: number;
@@ -28,7 +29,7 @@ export class ProductoService {
   }
 
   // Enviar solicitud para fabricar un producto
-  fabricarProducto(producto: Producto): Promise<any> {
-    return firstValueFrom(this.http.post(`${this.apiUrl}/fabricar`, producto));
+  fabricarProducto(construirDTO: ConstruirDTO): Promise<any> {
+    return firstValueFrom(this.http.post(`${this.apiUrl}/fabricar`, construirDTO));
   }
 }

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Producto, ProductoService } from '../productoService';
 import { MaterialModules } from '../material';
+import { ConstruirDTO } from '../ConstruirDTO';
 
 
 @Component({
@@ -16,13 +17,9 @@ import { MaterialModules } from '../material';
 export class ProductosComponent {
   cargando = true;
   productos: Producto[] = [];
-  nuevoProducto: Producto = {
+  nuevoProducto: ConstruirDTO = {
     codigoSerie: '',
-    fechaFabricacion: new Date(),
-    planoUsado: {
-      codigo: '',
-      descripcion: '',
-    },
+    
     cantidad: 0,
   };
   error = '';
@@ -49,12 +46,7 @@ export class ProductosComponent {
       await this.productoService.fabricarProducto(this.nuevoProducto);
       this.nuevoProducto = {
          codigoSerie: '',
-        fechaFabricacion: new Date(),
-        planoUsado: {
-          codigo: '',
-          descripcion: '',
-        },
-        cantidad: 0,
+         cantidad: 0,
         };
       await this.cargarProductos();
     } catch (err) {
