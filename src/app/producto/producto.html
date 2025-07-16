@@ -9,8 +9,8 @@
 
 <mat-list>
   <mat-list-item *ngFor="let producto of productos">
-    <strong>{{ producto.codigoSerie }}</strong> - {{ producto.id }}
-    <span class="ml-auto">Cantidad: {{ producto.cantidad }}</span>
+    <strong>{{ producto.codigoSerie }}</strong> - ID: {{ producto.id }}
+    <span class="ml-auto"> - fechaFabricacion: {{ producto.fechaFabricacion }}</span>
   </mat-list-item>
 </mat-list>
 
@@ -34,3 +34,7 @@
     Fabricar
   </button>
 </form>
+
+<button mat-raised-button color="primary" [routerLink]="'/inventario'" type="button">
+    Inventario
+  </button>

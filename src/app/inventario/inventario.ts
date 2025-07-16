@@ -22,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MaterialModules } from '../material';
 import { InventarioService } from '../inventario-service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-inventario',
@@ -29,6 +30,7 @@ import { InventarioService } from '../inventario-service';
   imports: [
     CommonModule,
     FormsModule,
+    RouterLink,
     // MaterialModules,
     MatTableModule,
     MatFormFieldModule,

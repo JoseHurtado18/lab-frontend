@@ -5,12 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { Producto, ProductoService } from '../productoService';
 import { MaterialModules } from '../material';
 import { ConstruirDTO } from '../ConstruirDTO';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-productos',
   standalone: true,
-  imports: [CommonModule, FormsModule, MaterialModules],
+  imports: [CommonModule, FormsModule, MaterialModules,RouterLink],
   templateUrl: './producto.html',
   providers: [ProductoService]
 })
