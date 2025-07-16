@@ -19,7 +19,7 @@ export interface Producto {
   providedIn: 'root'
 })
 export class ProductoService {
-  private apiUrl = '/lab/productos';
+  private apiUrl = 'lab/productos';
 
   constructor(private http: HttpClient) {}
 
@@ -27,6 +27,8 @@ export class ProductoService {
   getProductos(): Promise<Producto[]> {
     return firstValueFrom(this.http.get<Producto[]>(this.apiUrl));
   }
+
+  
 
   // Enviar solicitud para fabricar un producto
   fabricarProducto(construirDTO: ConstruirDTO): Promise<any> {

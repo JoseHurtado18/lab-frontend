@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Producto, ProductoService } from '../productoService';
 import { MaterialModules } from '../material';
 import { ConstruirDTO } from '../ConstruirDTO';
+import { Router } from 'express';
 
 
 @Component({
@@ -54,4 +55,6 @@ export class ProductosComponent {
       console.error(err);
     }
   }
+
+
 }
